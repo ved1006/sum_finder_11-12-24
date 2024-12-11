@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<title>Sum finder</title>
+		<style>
+			* {font-size:60px;font-family:Cambria; }
+			body{ background-color:brown; }
+			h1 { background-color:white;color:black;width:70%;border-radius:30px; }
+			.btn { background-color:yellow;color:blue;width:20%;border-radius:10px;margin-left:15px; }
+		</style>			
+	</head>
+	<body>
+	<center>
+		<h1>Sum Finder App</h1>
+		<form onsubmit="sum()">
+			<br/>
+			<input type="number"	placeholder="enter the number"	id="num"	/>
+			<br/><br/>
+			<input type="submit"		value="M1"    class="btn" />
+			<input type="submit"		value="M2"    class="btn" />
+			<input type="submit"		value="M3"    class="btn" />
+
+		</form>
+			<h2 id="msg" />
+		
+		<script>
+			function sum()
+			{	
+				event.preventDefault();
+				let num = document.getElementById("num");
+				let msg= document.getElementById("msg");
+			
+				let n = parseInt(num.value);
+		
+				if(num.value==="")	
+				{
+				alert("please enter the number " );
+				msg.innerHTML="";
+				num.focus();
+				return;
+				}	
+		
+				if(n<1)
+				{
+				alert("please enter the number greater than zero " );
+				msg.innerHTML="";
+				num.focus();
+				return;
+				}
+		
+				let action= document.activeElement.value;
+				let ans="";
+				
+				if(action==="M1")
+				{
+					let i=1,sum=0;
+					while(i<=n)
+					{
+						sum=sum+i;
+						i++;
+					}
+						ans="M1--> " + sum;
+						msg.innerHTML = ans;
+				}
+	
+				if(action==="M2")
+				{
+					let i=1,sum=0;
+					do
+					{
+						sum=sum+i;
+						i++;
+					}while(i<=n);
+						ans="M2--> " + sum;
+						msg.innerHTML = ans;		
+				}
+					
+				if(action==="M3")
+				{
+					let sum=0;
+					for(let i=1;i<=n;i++)
+					{
+						sum=sum+i;
+					}
+						ans="M3--> " + sum;
+						msg.innerHTML = ans;	
+				}
+			}
+		</script>
+	</center>
+	</body>
+</html>
